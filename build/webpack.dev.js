@@ -6,7 +6,8 @@ module.exports = {
     mode: "development",
     entry: "./src/index.tsx",
     devServer: {
-        contentBase: path.resolve(__dirname, "../dist"),
+        contentBase: "./dist",
+        publicPath: "/",
     },
     module: {
         rules: [
@@ -99,6 +100,6 @@ module.exports = {
     output: {
         publicPath: "./",
         filename: "bundle.js",
-        path: path.resolve(__dirname, "..", "dist"),
+        path: path.resolve(__dirname, "./dist"),
     },
 };

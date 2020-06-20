@@ -11,9 +11,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "onchange 'src/**/*.js' 'src/**/*.tsx' 'src/**/*.jsx' -- prettier --write {{changed}}",
-        "build": "webpack --config ./build/webpack.dev.js",
-        "server": "webpack-dev-server --config ./build/webpack.dev.js --open",
-        "start": "npm run build && npm run server"
+        "start": "webpack-dev-server --config ./build/webpack.dev.js --open --hot"
     },
     "author": "Felix",
     "license": "ISC",
