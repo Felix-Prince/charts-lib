@@ -9,11 +9,14 @@ module.exports = {
         contentBase: "./dist",
         publicPath: "/",
     },
+    resolve: {
+        extensions: [".js", ".ts", ".tsx", ".jsx"],
+    },
     module: {
         rules: [
             // 配置 es6 的兼容
             {
-                test: /\.js|jsx$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 // use: "babel-loader",
                 use: [
@@ -70,12 +73,12 @@ module.exports = {
             },
             // 处理 ts/tsx 文件
             {
-                test: /\.ts|tsx$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
                 loader: "ts-loader",
             },
             {
-                test: /\.jsx|tsx?$/,
+                test: /\.jsx|tsx$/,
                 use: [
                     {
                         loader: "babel-loader",
