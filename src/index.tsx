@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import ECharts from "./core/ECharts";
+import ECharts from "@core/ECharts";
 
 const App: React.FC = () => {
     const [chartData, setChartData] = useState([5, 20, 36, 10, 10, 20]);

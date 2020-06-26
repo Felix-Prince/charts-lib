@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
+
+// console.log("-----", path.join(__dirname)); // ----> /Users/mac/Desktop/charts-lib/build
 
 module.exports = {
     mode: "development",
@@ -11,6 +14,9 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".ts", ".tsx", ".jsx"],
+        alias: {
+            "@core": path.resolve(__dirname, "../src/components/core"),
+        },
     },
     module: {
         rules: [
@@ -98,6 +104,10 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "..", "public", "index.html"),
+        }),
+        new webpack.ProvidePlugin({
+            React: "react",
+            ReactDOM: "react-dom",
         }),
     ],
     output: {
