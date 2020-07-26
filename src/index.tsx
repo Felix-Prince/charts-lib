@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import ECharts from "@core/ECharts";
+import { Line } from "@pro/echarts";
 
 const App: React.FC = () => {
     const [chartData, setChartData] = useState([5, 20, 36, 10, 10, 20]);
-    const lineOption: any = {
-        title: {
-            text: "ECharts 入门示例",
-        },
-        tooltip: {},
-        legend: {
-            data: ["销量"],
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
-        },
-        yAxis: {},
-        series: [
-            {
-                name: "销量",
-                type: "bar",
-                data: chartData,
-            },
-        ],
+    const xAxis = {
+        data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    };
+    const yAxis = {
+        type: "value",
+    };
+    const legend = {
+        data: ["销量"],
     };
 
     const setData = (): void => {
@@ -37,8 +26,12 @@ const App: React.FC = () => {
     return (
         <div>
             Hello react
-            <ECharts option={lineOption} />
-            <ECharts option={lineOption} />
+            <Line
+                data={chartData}
+                xAxis={xAxis}
+                yAxis={yAxis}
+                legend={legend}
+            />
             <button onClick={setData}>setData</button>
         </div>
     );

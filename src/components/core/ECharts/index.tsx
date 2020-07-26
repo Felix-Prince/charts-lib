@@ -2,7 +2,7 @@ import React from "react";
 import EChartsObject from "echarts";
 import PropsTypes from "prop-types";
 
-interface EChartsProps {
+export interface EChartsProps {
     option: EChartsObject.EChartOption;
     notMerge?: boolean;
     lazyUpdate?: boolean;
@@ -35,7 +35,9 @@ const defaultProps = {
 };
 
 export default class ECharts extends React.Component<EChartsProps> {
-    private echartsDOM: HTMLDivElement | HTMLCanvasElement = (<div></div>);
+    private echartsDOM:
+        | HTMLDivElement
+        | HTMLCanvasElement = document.createElement("div");
     static propTypes = propTypes;
     static defaultProps = defaultProps;
 
@@ -43,7 +45,7 @@ export default class ECharts extends React.Component<EChartsProps> {
         this.renderChart();
     }
 
-    componentDidUpdate(prevProps: EChartsProps) {
+    componentDidUpdate() {
         this.renderChart();
     }
 
